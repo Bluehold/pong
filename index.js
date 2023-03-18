@@ -45,11 +45,11 @@ setInterval( function () {
     ball[1] += ball[3]
   }
   if ((ball[1] - 10 < 0 && ball[3] < 0) || (ball[1] + 10 > 500  && ball[3] > 0)) ball[3] = -ball[3]
-  if (ball[0] < 1150 && ball[0] > 1130 && Math.abs(ball[1] - bar[1]) < 50) {
+  if (ball[0] < 1150 && ball[0] > 1130 && Math.abs(ball[1] - bar[1]) < 60) {
     ball[2] = -ball[2]
     ball[3] = (ball[1] - bar[1]) * 0.15
   }
-  if (ball[0] < 70 && ball[0] > 50 && Math.abs(ball[1] - bar[0]) < 50) {
+  if (ball[0] < 70 && ball[0] > 50 && Math.abs(ball[1] - bar[0]) < 60) {
     ball[2] = -ball[2]
     ball[3] = (ball[1] - bar[0]) * 0.15
   }

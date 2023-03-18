@@ -34,9 +34,13 @@ function keyDown(e) {
 }
 
 {
-  SEb = new Audio("./sound/bar.ogg");
-  SEw = new Audio("./sound/wall.ogg");
-  SEe = new Audio("./sound/end.ogg");
+  SE = {}
+  SE["bar"] = new Audio("./sound/bar.ogg");
+  SE["wall"] = new Audio("./sound/wall.ogg");
+  SE["end"] = new Audio("./sound/end.ogg");
+  for (var v in SE) {
+    SE[v].volume = 0.5
+  }
 }
 
 c.strokeStyle = '#00000000'
@@ -52,17 +56,17 @@ setInterval( function () {
   }
   if ((ball[1] - 10 < 0 && ball[3] < 0) || (ball[1] + 10 > 500  && ball[3] > 0)) {
     ball[3] = -ball[3]
-    SEw.play()
+    SE["wall"].play()
   }
   if (ball[0] < 1150 && ball[0] > 1130 && Math.abs(ball[1] - bar[1]) < 60) {
     ball[2] = -ball[2]
     ball[3] = (ball[1] - bar[1]) * 0.15
-    SEb.play()
+    SE["bar"].play()
   }
   if (ball[0] < 70 && ball[0] > 50 && Math.abs(ball[1] - bar[0]) < 60) {
     ball[2] = -ball[2]
     ball[3] = (ball[1] - bar[0]) * 0.15
-    SEb.play()
+    SE["bar"].play()
   }
   
   if (keypress[83]) bar[0] += 4
@@ -97,7 +101,7 @@ setInterval( function () {
       c.fill()
     }
     Endflash += 1
-    if (Endflash == 1) SEe.play()
+    if (Endflash == 1) SE["end"].play()
   }
   if (Endflash == 80) for (var v in EParticles) {
     EParticles[v].xy = [-5, ball[1]]

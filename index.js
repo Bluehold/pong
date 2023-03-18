@@ -67,8 +67,8 @@ setInterval( function () {
   else {
   AIball = 250
   }
-  if (bar[1] + 30 + ball[3] < AIball) bar[1] += 4
-  if (bar[1] - 30 + ball[3] > AIball) bar[1] -= 4
+  if (bar[1] + 45 + ball[3] < AIball) bar[1] += 4
+  if (bar[1] - 45 + ball[3] > AIball) bar[1] -= 4
   for (var v in bar) {
     if (bar[v] < 50) bar[v] = 50
     if (bar[v] > 450) bar[v] = 450
